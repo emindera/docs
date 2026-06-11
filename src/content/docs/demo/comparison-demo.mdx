@@ -1,0 +1,28 @@
+---
+title: Comparison Demo
+description: Run the one demo that shows Emindera versus plain GraphQL.
+---
+
+The examples repo contains a single demo:
+
+```sh
+cd /Users/kabirsekhon/Documents/Coding/examples
+pnpm install
+pnpm dev
+```
+
+Open the Vite URL, usually `http://localhost:5173`.
+
+The demo starts a local GraphQL server at `http://localhost:4100/graphql`.
+
+For quick viewing it uses an in-memory store. For the real Postgres version:
+
+```sh
+pnpm db:up
+pnpm dev:postgres
+```
+
+It shows:
+
+- Plain GraphQL + database-backed resolver: UI waits for the response.
+- Emindera + the same GraphQL API: UI updates immediately, queues locally, and reconciles with the response.

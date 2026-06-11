@@ -1,0 +1,22 @@
+---
+title: Why Emindera?
+description: The simple reason to add Emindera to an app.
+---
+
+Most social interactions are small writes: send a message, add a comment, update a note, publish a text post.
+
+The normal flow is:
+
+```text
+tap send -> GraphQL request -> server resolver -> database write -> response -> UI update
+```
+
+That is correct, but it feels slow.
+
+Emindera keeps the same server and database contract, but changes what the user sees:
+
+```text
+tap send -> local optimistic update -> durable queue -> GraphQL request -> database write -> reconcile
+```
+
+The server remains the source of truth. Emindera just stops the UI from waiting for the round trip before showing the user's own action.

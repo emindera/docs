@@ -1,0 +1,35 @@
+---
+title: Emindera
+description: A React and React Native plugin for instant-feeling GraphQL interactions.
+---
+
+<img class="home-logo" src="/emindera-logo.png" alt="Emindera" width="104" />
+
+Emindera is a small plugin for React and React Native apps. It makes messages, comments, notes, and posts feel instant by adding optimistic client state, a durable mutation queue, and reconciliation on top of the GraphQL API or database-backed server you already have.
+
+It is not a framework. It does not replace your database, GraphQL server, auth, routing, navigation, deployment, or app structure.
+
+<div class="card-grid">
+  <div class="mini-card">
+    <strong>Without Emindera</strong>
+    UI waits for GraphQL, GraphQL waits for the database, then the message appears.
+  </div>
+  <div class="mini-card">
+    <strong>With Emindera</strong>
+    UI updates immediately, the mutation queues locally, and the server response reconciles the final ID.
+  </div>
+</div>
+
+## Install
+
+```sh
+pnpm add @emindera/core @emindera/react @emindera/graphql @emindera/storage-indexeddb
+```
+
+## Current repos
+
+- `emindera/emindera`: plugin packages.
+- `emindera/docs`: this documentation site.
+- `emindera/examples`: one comparison demo.
+
+The old scaffold, benchmarks, and RFC repos were intentionally removed from the local project shape because they made Emindera look like a framework ecosystem. It is a plugin.

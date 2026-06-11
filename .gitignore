@@ -47,6 +47,8 @@ web_modules/
 
 # TypeScript cache
 *.tsbuildinfo
+.astro/
+.turbo/
 
 # Optional npm cache directory
 .npm

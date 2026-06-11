@@ -1,0 +1,14 @@
+---
+title: Storage
+description: Durable queue storage adapters.
+---
+
+Emindera stores queued mutations locally so user actions survive slow networks, offline periods, and reloads.
+
+Use:
+
+- `@emindera/storage-indexeddb` for web persistence.
+- `@emindera/storage-sqlite` for React Native persistence.
+- `@emindera/storage-memory` for tests and demos.
+
+Storage is for queue durability. Your real database remains on your server.

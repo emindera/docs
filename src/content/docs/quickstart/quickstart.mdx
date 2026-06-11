@@ -1,0 +1,50 @@
+---
+title: Quickstart
+description: Wire Emindera to an existing GraphQL endpoint.
+---
+
+Create a client:
+
+```ts
+import { createEminderaClient, createMemoryStore } from "@emindera/core";
+import { createGraphQLFetchTransport } from "@emindera/graphql";
+import { createIndexedDBStorage } from "@emindera/storage-indexeddb";
+
+export const emindera = createEminderaClient({
+  store: createMemoryStore(),
+  storage: createIndexedDBStorage(),
+  transport: createGraphQLFetchTransport({
+    endpoint: "/graphql",
+  }),
+});
+```
+
+Wrap your React tree:
+
+```tsx
+import { EminderaProvider } from "@emindera/react";
+import { emindera } from "./emindera";
+
+export function App() {
+  return <EminderaProvider client={emindera}>{/* your app */}</EminderaProvider>;
+}
+```
+
+Use a hook:
+
+```tsx
+import { useEminderaThread, useSendMessage } from "@emindera/react";
+
+function Thread() {
+  const messages = useEminderaThread("thread_1");
+  const sendMessage = useSendMessage();
+
+  return (
+    <button onClick={() => sendMessage({ threadId: "thread_1", body: "Hello" })}>
+      Send
+    </button>
+  );
+}
+```
+
+Your GraphQL mutation should accept and echo `clientMutationId`.

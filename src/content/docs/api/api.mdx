@@ -1,0 +1,19 @@
+---
+title: API
+description: Small public API map.
+---
+
+Most apps touch only a few pieces:
+
+| Need | API |
+| --- | --- |
+| Create client | `createEminderaClient()` |
+| Use existing GraphQL API | `createGraphQLFetchTransport()` |
+| React provider | `EminderaProvider` |
+| Send message | `useSendMessage()` |
+| Read messages | `useEminderaThread()` |
+| Queue UI | `useMutationQueue()` |
+| Offline state | `client.setOnline()` / `useNetworkState()` |
+| Tests | `@emindera/testing` |
+
+Lower-level packages exist so the plugin can support web and React Native without hard platform dependencies.

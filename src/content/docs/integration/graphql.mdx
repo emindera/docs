@@ -1,0 +1,33 @@
+---
+title: Existing GraphQL API
+description: Emindera plugs into GraphQL; it does not replace your API.
+---
+
+Emindera sends normal GraphQL mutations.
+
+Your API needs one extra convention: every optimistic mutation includes `clientMutationId`, and the server echoes it in the payload.
+
+```graphql
+input SendMessageInput {
+  threadId: ID!
+  body: String!
+  clientMutationId: ID!
+}
+
+type SendMessagePayload {
+  clientMutationId: ID!
+  message: Message!
+}
+```
+
+Then use:
+
+```ts
+import { createGraphQLFetchTransport } from "@emindera/graphql";
+
+const transport = createGraphQLFetchTransport({
+  endpoint: "/graphql",
+});
+```
+
+Resolvers still write to your database exactly like before. Emindera only changes the client-side waiting experience.

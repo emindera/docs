@@ -1,0 +1,24 @@
+---
+title: Install
+description: Add Emindera packages to an existing app.
+---
+
+For a React web app using GraphQL:
+
+```sh
+pnpm add @emindera/core @emindera/react @emindera/graphql @emindera/storage-indexeddb
+```
+
+For React Native:
+
+```sh
+pnpm add @emindera/core @emindera/react @emindera/react-native @emindera/graphql @emindera/storage-sqlite
+```
+
+For tests:
+
+```sh
+pnpm add -D @emindera/testing @emindera/storage-memory
+```
+
+Use `@emindera/apollo` only if your app already uses Apollo Client. Otherwise, use the plain `createGraphQLFetchTransport()` helper.

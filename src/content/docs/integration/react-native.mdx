@@ -1,0 +1,18 @@
+---
+title: React Native
+description: Native storage and network state without native side effects.
+---
+
+`@emindera/react-native` provides native-safe adapters. You pass native runtime objects in; the package does not import Expo, SQLite, MMKV, or NetInfo at module top level.
+
+```ts
+import { createReactNativeEminderaClient } from "@emindera/react-native";
+
+const client = createReactNativeEminderaClient({
+  sqlite,
+  transport,
+  netInfo,
+});
+```
+
+This keeps Emindera usable in Expo, bare React Native, and tests.
